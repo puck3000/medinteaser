@@ -16,7 +16,7 @@ html, body, main
   height: 100%
   margin: 0
   padding: 0
-  font-family: 'Jost'
+  font-family: 'Futura'
 main 
   position: relative
 section
@@ -31,12 +31,18 @@ section
     color: black
     font-size: 6rem
     margin: 0
-    line-height: 1
+    line-height: 1.5
+    font-weight: 450;
   .dot 
     position: absolute
-    left: 13.55rem
-    top: -2rem
+    left: 13.7rem
     height: 1.5rem
+    -webkit-filter: blur(0);
+    transition: transform 1s ease-in-out 1s
+    transform: scale(1) 
+    &:hover 
+      transform: scale(50)
+
     circle 
       fill: red
       cx: 60
@@ -45,7 +51,7 @@ section
   h2 
     margin: 0
     font-size: 2.5rem
-    font-weight: 400
+    font-weight: 50
 
 
 </style>
