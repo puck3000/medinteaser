@@ -1,119 +1,94 @@
 <template>
-  <div id="app">
-    <Header />
+  <div id="app" :style="{color: currentColor}">
+    <Head :color="currentColor" />
     <main class="animatedColor">
       <router-view />
     </main>
-    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import Head from "@/components/Head.vue";
 
 export default {
   name: "app",
   components: {
-    Header,
-    Footer
+    Head
+  },
+  data() {
+    return {
+      colors: ["#0000ff", "#ff0900", "#ffa200", "#49e6a3", "#ff00ff"],
+      currentColor: "#0000ff",
+      i: 0
+    };
+  },
+  methods: {
+    nextColor: function() {
+      let self = this;
+      setInterval(function() {
+        self.i = (self.i + 1) % 5;
+        self.currentColor = self.colors[self.i];
+      }, 10000);
+    }
+  },
+  beforeMount() {
+    this.nextColor();
   }
 };
 </script>
 
 <style lang="stylus">
-@font-face 
+// --------------------------------------
+// VARS
+// -------------------------------------
+:root {
+  --theme_blue: #0000ff;
+  --theme_red: #ff0900;
+  --theme_orange: #ffa200;
+  --theme_green: #49e6a3;
+  --theme_pink: #ff00ff;
+}
+
+// --------------------------------------
+// FONTS
+// -------------------------------------
+@font-face {
   font-family: 'SuisseRegular';
   src: url('assets/fonts/SuisseIntl-Regular.otf') format('otf');
+}
 
-
-html, body 
+html, body {
   margin: 0;
   height: 100vh;
-  background-color: rgb(235, 235, 235);
+  // background-color: rgb(235, 235, 235);
+}
 
+h1, h2, a {
+  font-family: 'SuisseRegular', Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-top: 0;
+  color: inherit;
+}
 
-#app 
+// --------------------------------------
+// GENERAL LAYOUT
+// -------------------------------------
+#app {
   margin: 1rem;
-  display: flex;
-  flex-direction: column;
+  transition: color 2s ease-in-out;
+}
 
-  h2, a
-    font-family: 'SuisseRegular', Helvetica, sans-serif;
-    font-weight: 500;
-    font-size: 1.5rem
-    margin-top: 0
-  a 
-    color: inherit
-    margin-bottom: 0
-  
-main 
-  opacity: 0.6
-
-.animatedColor 
-  animation: h2ColorWheel 40s linear infinite;
-
-@media  screen and (min-width: 768px)
-  body 
+@media screen and (min-width: 768px) {
+  body {
     display: flex;
     justify-content: center;
     align-items: center;
-  #app 
-    margin: 4rem
-    max-width: 1200px
-    
-
-@keyframes h2ColorWheel {
-  0% {
-    color: rgb(105, 105, 105); // darkGrey
   }
 
-  14% {
-    color: rgb(105, 105, 105); // darkGrey
-  }
-
-  16% {
-    color: rgb(167, 0, 0); // darkRed
-  }
-
-  29% {
-    color: rgb(167, 0, 0); // darkRed
-  }
-
-  31% {
-    color: rgb(175, 91, 0); // darkOrange
-  }
-
-  44% {
-    color: rgb(175, 91, 0); // darkOrange
-  }
-
-  46% {
-    color: rgb(0, 0, 183); // darkBlue
-  }
-
-  59% {
-    color: rgb(0, 0, 183); // darkBlue
-  }
-
-  61% {
-    color: rgb(4, 151, 92); // darkGreen
-  }
-
-  74% {
-    color: rgb(4, 151, 92); // darkGreen
-  }
-
-  76% {
-    color: rgb(250, 0, 255); // darkMagenta
-  }
-
-  99% {
-    color: rgb(250, 0, 255); // darkMagenta
-  }
-
-  100% {
-    color: rgb(105, 105, 105); // darkGrey
+  #app {
+    margin: 4rem;
+    max-width: 1200px;
   }
 }
 </style>

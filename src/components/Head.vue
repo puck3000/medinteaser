@@ -1,11 +1,11 @@
 <template>
-  <div id="logo">
-    <h1>
+  <div>
+    <h1 id="logo">
       <svg
-        id="Ebene_1"
+        id="LogoMedin"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 700 265"
-        style="enable-background:new 0 0 700 265"
+        :style="{fill: color}"
       >
         <switch>
           <g>
@@ -26,100 +26,30 @@
         </switch>
       </svg>
     </h1>
-    <h2 class="animatedColor">Biel / Bienne</h2>
+    <h2>Biel / Bienne</h2>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-  methods: {}
+  name: "Head",
+  props: ["color"]
 };
 </script>
 
 <style lang="stylus" scoped>
-
-#logo 
-  margin-bottom: 4rem
-#Ebene_1 {
-  height: 4rem;
-  fill: rgb(0, 0, 183);
-  animation: colorWheel 40s linear infinite;
-
-  .lighten {
-    fill-opacity: 0.6;
-  }
-}
-
-h1, h2 {
-  margin: 0;
+h1 {
+  margin-bottom: 0;
 }
 
 h2 {
-  height: 2rem;
-  // animation: h2ColorWheel 40s linear infinite;
-  opacity: 0.7;
-  font-family: 'SuisseRegular', Helvetica, sans-serif;
-  font-weight: 500;
+  margin-bottom: 3rem;
 }
 
-@keyframes colorWheel {
-  0% {
-    fill: rgb(105, 105, 105); // darkGrey
-  }
-
-  14% {
-    fill: rgb(105, 105, 105); // darkGrey
-  }
-
-  16% {
-    fill: rgb(167, 0, 0); // darkRed
-  }
-
-  29% {
-    fill: rgb(167, 0, 0); // darkRed
-  }
-
-  31% {
-    fill: rgb(175, 91, 0); // darkOrange
-  }
-
-  44% {
-    fill: rgb(175, 91, 0); // darkOrange
-  }
-
-  46% {
-    fill: rgb(0, 0, 183); // darkBlue
-  }
-
-  59% {
-    fill: rgb(0, 0, 183); // darkBlue
-  }
-
-  61% {
-    fill: rgb(4, 151, 92); // darkGreen
-  }
-
-  74% {
-    fill: rgb(4, 151, 92); // darkGreen
-  }
-
-  76% {
-    fill: rgb(250, 0, 255); // darkMagenta
-  }
-
-  99% {
-    fill: rgb(250, 0, 255); // darkMagenta
-  }
-
-  100% {
-    fill: rgb(105, 105, 105); // darkGrey
-  }
-
-  
+#LogoMedin {
+  height: 4rem;
+  fill: blue;
+  transition: fill 2s ease-in-out;
 }
-
 </style>
 
