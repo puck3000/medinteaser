@@ -27,9 +27,15 @@ h1, h2
 
 h1 
     font-size: h1size rem
+    color: lightblue
+
 h2 
     font-size: "calc(%srem / 2)" % h1size 
     font-weight: 50
+    color: lightblue
+
+.logo&:hover #dot
+    transform: scale(50) 
 
 #dot 
     color: lightblue
@@ -38,8 +44,7 @@ h2
     line-height: .5
     transform: scale(1);
     transform-origin: 24.5%;
-    transition: transform 2s ease-in-out 
-    &:hover
-        transform: scale(10) 
+    transition: transform .5s ease-in-out 
+    
     
 </style>
