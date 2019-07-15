@@ -34,7 +34,6 @@ html, body
 
 
 #app 
-  height: calc(100% - 2rem)
   margin: 1rem;
   display: flex;
   flex-direction: column;
@@ -61,7 +60,6 @@ main
     align-items: center;
   #app 
     margin: 4rem
-    height: calc(100% - 8rem)
     max-width: 1200px
     
 
