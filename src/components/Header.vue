@@ -40,13 +40,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+
+#logo 
+  margin-bottom: 4rem
 #Ebene_1 {
   height: 4rem;
   fill: rgb(0, 0, 183);
   animation: colorWheel 40s linear infinite;
 
   .lighten {
-    fill-opacity: 0.7;
+    fill-opacity: 0.6;
   }
 }
 
@@ -107,7 +110,7 @@ h2 {
     fill: rgb(250, 0, 255); // darkMagenta
   }
 
-  89% {
+  99% {
     fill: rgb(250, 0, 255); // darkMagenta
   }
 

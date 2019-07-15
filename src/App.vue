@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <main>
+    <main class="animatedColor">
       <router-view />
     </main>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
@@ -22,38 +22,37 @@ export default {
 </script>
 
 <style lang="stylus">
-@font-face {
+@font-face 
   font-family: 'SuisseRegular';
   src: url('assets/fonts/SuisseIntl-Regular.otf') format('otf');
-}
 
-html, body {
+
+html, body 
   margin: 0;
   height: 100vh;
   background-color: rgb(235, 235, 235);
-}
 
-#app {
+
+#app 
   height: calc(100% - 2rem)
   margin: 1rem;
   display: flex;
   flex-direction: column;
 
-  h2 {
+  h2, a
     font-family: 'SuisseRegular', Helvetica, sans-serif;
     font-weight: 500;
-    margin: 0
-  }
-}
+    font-size: 1.5rem
+    margin-top: 0
+  a 
+    color: inherit
+    margin-bottom: 0
+  
+main 
+  opacity: 0.6
 
-main {
-  flex: 1;
-}
-
-.animatedColor {
+.animatedColor 
   animation: h2ColorWheel 40s linear infinite;
-}
-
 
 @media  screen and (min-width: 768px)
   body 
@@ -63,9 +62,8 @@ main {
   #app 
     margin: 4rem
     height: calc(100% - 8rem)
-    max-width: 768px
+    max-width: 1200px
     
-
 
 @keyframes h2ColorWheel {
   0% {

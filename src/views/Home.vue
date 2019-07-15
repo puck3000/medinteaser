@@ -1,14 +1,24 @@
 <template>
   <div class="container">
-    <h2>
-      Ihr neues Gesundheitszentrum beim Bahnhof Biel.
-      <br />ab Oktober 2019
-    </h2>
-    <div id="dot" class="animatedColor">●</div>
-    <h2 class="ta_left">
-      Französisches Gesundheitszentrum beim Bahnhof Bienne.
-      <br />ab Oktober 2019.
-    </h2>
+    <article>
+      <h2>
+        Ihr neues Gesundheitszentrum beim Bahnhof Biel.
+        <span><br/></span>
+        Ab Oktober 2019.
+      </h2>
+      <a href="#" target="_blank">Kontakt</a>
+      <a href="#" target="_blank">Downloads</a>
+    </article>
+    <article>
+      <h2>
+        Französisches Gesundheitszentrum beim Bahnhof Bienne. 
+        <span><br/></span>
+        Ab Oktober 2019.
+      </h2>
+      <a href="#" target="_blank">Contact</a>
+      <a href="#" target="_blank">Downloads</a>
+    </article>
+
   </div>
 </template>
 
@@ -21,25 +31,27 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container {
+.container 
   height: 100%;
   font-family: 'SuisseRegular', Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  font-weight: 500;
+  font-size: 1.5em;
+  @media  screen and (min-width: 768px)
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 2rem
 
-h2 {
-  &.ta_left {
-    text-align: right
-  }
-}
 
-#dot {
-  line-height: 9rem;
-  font-size: 15rem;
-  text-align: center;
-  opacity: 0.7
-  margin-bottom: 1.5rem
-}
+  article 
+    margin-bottom: 4rem
+
+  h2 
+    margin-bottom: 2rem
+    span 
+      display: none
+      @media screen and (min-width: 768px) 
+        display: inline
+  a 
+    display: block
+
 </style>
